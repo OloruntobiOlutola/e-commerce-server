@@ -31,6 +31,11 @@ app.use(`${api}/categories`, categoriesRoutes);
 app.use(`${api}/products`, productsRoutes);
 app.use(`${api}/users`, usersRoutes);
 app.use(`${api}/orders`, ordersRoutes);
+app.use('*', (req, res) => {
+    res.status(404).json({
+        message: 'Not Found'
+    })
+})
 
 //Database
 mongoose
